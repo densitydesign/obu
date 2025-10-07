@@ -408,14 +408,6 @@ pre.w-code-block code {
   transform: none !important;
 }
 
-.w-webflow-badge {
-  visibility: hidden !important;
-}
-
-.indicatore-sezione {
-  cursor: pointer;
-}
-
 .w-webflow-badge > img {
   position: unset;
   visibility: unset !important;
@@ -5334,4 +5326,12 @@ textarea.w-select {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+.w-webflow-badge {
+  display: none !important;
+}
+
+.indicatore-sezione {
+  cursor: pointer;
 }
