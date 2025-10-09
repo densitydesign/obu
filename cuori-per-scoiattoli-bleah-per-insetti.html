@@ -90,21 +90,24 @@
       /* Handle on hover */
       ::-webkit-scrollbar-thumb:hover {
         background: transparent;
-      ```
       }
 
+      body {
+        -webkit-font-smoothing: antialiased;
+      }
 
-      body { -webkit-font-smoothing: antialiased; }
-
-
-      body { overflow: -moz-scrollbars-none; -ms-overflow-style: none;  }
-      :root{
+      body {
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+      }
+      :root {
         scrollbar-width: none !important;
       }
 
-      body{
+      body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
     </style>
   </head>
   <body>
