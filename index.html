@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <!-- Last Published: Fri Apr 04 2025 14:49:00 GMT+0000 (Coordinated Universal Time) -->
-<html
-  data-wf-domain="obu---osservatorio-sulla-biodiversita-u.webflow.io"
-  data-wf-page="674f332340808fa363078774"
-  data-wf-site="674f332340808fa363078766"
-  lang="it"
->
+<html lang="it">
   <head>
     <meta charset="utf-8" />
     <title>Osservatorio sulla Biodiversità Urbana</title>
@@ -937,26 +932,29 @@
       /* Handle on hover */
       ::-webkit-scrollbar-thumb:hover {
         background: transparent;
-      ```
       }
 
+      body {
+        -webkit-font-smoothing: antialiased;
+      }
 
-      body { -webkit-font-smoothing: antialiased; }
-
-
-      body { overflow: -moz-scrollbars-none; -ms-overflow-style: none;  }
-      :root{
+      body {
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+      }
+      :root {
         scrollbar-width: none !important;
       }
 
-      body{
+      body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-      @media screen and (max-height: 480px) {
-       .CanvasHome {
-       display:none;
-       }
+        @media screen and (max-height: 480px) {
+          .CanvasHome {
+            display: none;
+          }
+        }
       }
     </style>
   </body>

@@ -1,239 +1,958 @@
 <!DOCTYPE html>
-<!-- Last Published: Fri Apr 04 2025 14:49:00 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="obu---osservatorio-sulla-biodiversita-u.webflow.io" data-wf-page="67abd37fa7be9f6fa973bfa2" data-wf-site="674f332340808fa363078766" lang="it"><head><meta charset="utf-8"/><title>Urban Biodiversity Observatory</title><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="external/cdn.prod.website-files.com/674f332340808fa363078766/css/obu---osservatorio-sulla-biodiversita-u.ac422a439.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg" rel="shortcut icon" type="image/x-icon"/><link href="external/cdn.prod.website-files.com/674f332340808fa363078766/677ba635aa3bb999dae99106_FavIcon2.png" rel="apple-touch-icon"/> <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-</head><body class="body"><div class="navbar strokebianco"><div class="navbarmain"><a aria-current="page" class="homepage w--current" href="en-home.html">Urban Biodiversity Observatory</a></div><div class="lingua" id="w-node-_3fda7f12-6c90-23c3-878f-544e2b3cdeed-a973bfa2"><a class="link-block-6 w-inline-block" href="index.html"><div class="switchlingua">ITA</div></a><a aria-current="page" class="link-block-5 w-inline-block w--current" href="en-home.html"><div class="switchlingua">ENG</div></a></div></div><div class="cards"><div class="first-card" data-w-id="aed692fe-86f7-ea83-7135-c612bcf57e13"><div class="canvashome" id="canvas-container"><div class="code-embed2 w-embed w-script"><script>
-let img1, img2;
-let images = [];
-let isFollowing = false;
-const BASE_WIDTH = 1300;
-const BASE_MIN_DIST = 50;
-let scaleFactor = 1;
-let marginX = 80;
-let marginY = 90; // Valore predefinito
+<!-- Last Published: Fri Apr 04 2025 14:49:00 GMT+0000 (Coordinated Universal Time) -->
+<html
+  data-wf-domain="obu---osservatorio-sulla-biodiversita-u.webflow.io"
+  data-wf-page="67abd37fa7be9f6fa973bfa2"
+  data-wf-site="674f332340808fa363078766"
+  lang="it"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Urban Biodiversity Observatory</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/css/obu---osservatorio-sulla-biodiversita-u.ac422a439.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link
+      crossorigin="anonymous"
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: [
+            "Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic",
+          ],
+        },
+      });
+    </script>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/677ba635aa3bb999dae99106_FavIcon2.png"
+      rel="apple-touch-icon"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  </head>
+  <body class="body">
+    <div class="navbar strokebianco">
+      <div class="navbarmain">
+        <a aria-current="page" class="homepage w--current" href="en-home.html"
+          >Urban Biodiversity Observatory</a
+        >
+      </div>
+      <div
+        class="lingua"
+        id="w-node-_3fda7f12-6c90-23c3-878f-544e2b3cdeed-a973bfa2"
+      >
+        <a class="link-block-6 w-inline-block" href="index.html"
+          ><div class="switchlingua">ITA</div></a
+        ><a
+          aria-current="page"
+          class="link-block-5 w-inline-block w--current"
+          href="en-home.html"
+          ><div class="switchlingua">ENG</div></a
+        >
+      </div>
+    </div>
+    <div class="cards">
+      <div class="first-card" data-w-id="aed692fe-86f7-ea83-7135-c612bcf57e13">
+        <div class="canvashome" id="canvas-container">
+          <div class="code-embed2 w-embed w-script">
+            <script>
+              let img1, img2;
+              let images = [];
+              let isFollowing = false;
+              const BASE_WIDTH = 1300;
+              const BASE_MIN_DIST = 50;
+              let scaleFactor = 1;
+              let marginX = 80;
+              let marginY = 90; // Valore predefinito
 
-const basePositions = [
-    { x: 202, y: 51 }, { x: 311, y: 94 }, { x: 361, y: 195 },
-    { x: 350, y: 314 }, { x: 257, y: 386 }, { x: 133, y: 379 },
-    { x: 47, y: 300 }, { x: 33, y: 187 }, { x: 85, y: 85 },
-    { x: 508, y: 70 }, { x: 624, y: 70 }, { x: 688, y: 145 },
-    { x: 653, y: 237 }, { x: 553, y: 229 }, { x: 483, y: 163 },
-    { x: 480, y: 293 }, { x: 510, y: 388 }, { x: 630, y: 389 },
-    { x: 705, y: 316 }, { x: 821, y: 86 }, { x: 825, y: 183 },
-    { x: 831, y: 288 }, { x: 876, y: 378 }, { x: 981, y: 401 },
-    { x: 1081, y: 380 }, { x: 1122, y: 287 }, { x: 1131, y: 186 },
-    { x: 1130, y: 84 }
-];
+              const basePositions = [
+                { x: 202, y: 51 },
+                { x: 311, y: 94 },
+                { x: 361, y: 195 },
+                { x: 350, y: 314 },
+                { x: 257, y: 386 },
+                { x: 133, y: 379 },
+                { x: 47, y: 300 },
+                { x: 33, y: 187 },
+                { x: 85, y: 85 },
+                { x: 508, y: 70 },
+                { x: 624, y: 70 },
+                { x: 688, y: 145 },
+                { x: 653, y: 237 },
+                { x: 553, y: 229 },
+                { x: 483, y: 163 },
+                { x: 480, y: 293 },
+                { x: 510, y: 388 },
+                { x: 630, y: 389 },
+                { x: 705, y: 316 },
+                { x: 821, y: 86 },
+                { x: 825, y: 183 },
+                { x: 831, y: 288 },
+                { x: 876, y: 378 },
+                { x: 981, y: 401 },
+                { x: 1081, y: 380 },
+                { x: 1122, y: 287 },
+                { x: 1131, y: 186 },
+                { x: 1130, y: 84 },
+              ];
 
-const anglesInDegrees = [
-    90, 135, 175, 205, -110, 120, -30, 10, -135,
-    90, 100, 200, -70, -100, 0, 180, 100, 80, 10,
-    180, 180, 160, 135, 90, 45, 20, 0, 0
-];
+              const anglesInDegrees = [
+                90, 135, 175, 205, -110, 120, -30, 10, -135, 90, 100, 200, -70,
+                -100, 0, 180, 100, 80, 10, 180, 180, 160, 135, 90, 45, 20, 0, 0,
+              ];
 
-function updateMargins() {
+              function updateMargins() {
+                if (windowWidth < 991) {
+                  marginY = 70;
+                  marginX = 20;
+                } else if (windowWidth < 767) {
+                  marginY = 70;
+                  marginX = 10;
+                } else {
+                  marginY = 90;
+                  marginX = 80;
+                }
+              }
 
-  if (windowWidth < 991) {
-        marginY = 70;
-        marginX = 20;
-    } else if (windowWidth < 767) {
-        marginY = 70;
-        marginX = 10;
-    } else {
-        marginY = 90;
-        marginX = 80;
-    }
-}
+              function easeInOutQuad(t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+              }
 
-function easeInOutQuad(t) {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-}
+              function preload() {
+                img1 = loadImage(
+                  "https://cdn.prod.website-files.com/674f332340808fa363078766/679353e11fbe5b3564578ed3_OBU.svg"
+                );
+                img2 = loadImage(
+                  "https://cdn.prod.website-files.com/674f332340808fa363078766/679353e15566edb818c2e182_OBU2.svg"
+                );
+              }
 
-function preload() {
-    img1 = loadImage('https://cdn.prod.website-files.com/674f332340808fa363078766/679353e11fbe5b3564578ed3_OBU.svg');
-    img2 = loadImage('https://cdn.prod.website-files.com/674f332340808fa363078766/679353e15566edb818c2e182_OBU2.svg');
-}
+              function calculateScale() {
+                const container = document.getElementById("canvas-container");
+                const containerWidth = container.clientWidth - marginX;
+                scaleFactor = containerWidth / BASE_WIDTH;
+              }
 
-function calculateScale() {
-    const container = document.getElementById('canvas-container');
-    const containerWidth = container.clientWidth - marginX;
-    scaleFactor = containerWidth / BASE_WIDTH;
-}
+              function scalePosition(pos) {
+                return {
+                  x: pos.x * scaleFactor + marginX,
+                  y: pos.y * scaleFactor + marginY,
+                };
+              }
 
-function scalePosition(pos) {
-    return {
-        x: pos.x * scaleFactor + marginX,
-        y: pos.y * scaleFactor + marginY,
-    };
-}
+              function setup() {
+                const container = select("#canvas-container");
+                const canvas = createCanvas(container.width, container.height);
+                canvas.parent("canvas-container");
 
-function setup() {
-    const container = select('#canvas-container');
-    const canvas = createCanvas(container.width, container.height);
-    canvas.parent('canvas-container');
+                updateMargins(); // Aggiorna il margine in base alla dimensione dello schermo
+                calculateScale();
+                createImages();
+              }
 
-    updateMargins(); // Aggiorna il margine in base alla dimensione dello schermo
-    calculateScale();
-    createImages();
-}
+              function createImages() {
+                images = [];
+                for (let i = 0; i < basePositions.length; i++) {
+                  const scaledPos = scalePosition(basePositions[i]);
+                  const imageObj = createImageAtPosition(i, scaledPos);
+                  images.push(imageObj);
+                }
+              }
 
-function createImages() {
-    images = [];
-    for (let i = 0; i < basePositions.length; i++) {
-        const scaledPos = scalePosition(basePositions[i]);
-        const imageObj = createImageAtPosition(i, scaledPos);
-        images.push(imageObj);
-    }
-}
+              function createImageAtPosition(index, position) {
+                const angle =
+                  anglesInDegrees[index] !== undefined
+                    ? radians(anglesInDegrees[index])
+                    : 0;
+                return {
+                  x: position.x,
+                  y: position.y,
+                  prevX: position.x,
+                  prevY: position.y,
+                  initialX: position.x,
+                  initialY: position.y,
+                  initialAngle: angle,
+                  angle: angle,
+                  img: random([img1, img2]),
+                  isMoving: false,
+                  wanderStrength: 0.3 * scaleFactor,
+                  speed: 1 * scaleFactor,
+                };
+              }
 
-function createImageAtPosition(index, position) {
-    const angle = anglesInDegrees[index] !== undefined ? radians(anglesInDegrees[index]) : 0;
-    return {
-        x: position.x,
-        y: position.y,
-        prevX: position.x,
-        prevY: position.y,
-        initialX: position.x,
-        initialY: position.y,
-        initialAngle: angle,
-        angle: angle,
-        img: random([img1, img2]),
-        isMoving: false,
-        wanderStrength: 0.3 * scaleFactor,
-        speed: 1 * scaleFactor,
-    };
-}
+              function draw() {
+                clear();
+                images.forEach((imgObj, i) => {
+                  const distance = dist(mouseX, mouseY, imgObj.x, imgObj.y);
+                  const scaledInteractionDistance = 250 * scaleFactor;
+                  isFollowing = distance < scaledInteractionDistance;
 
-function draw() {
-    clear();
-    images.forEach((imgObj, i) => {
-        const distance = dist(mouseX, mouseY, imgObj.x, imgObj.y);
-        const scaledInteractionDistance = 250 * scaleFactor;
-        isFollowing = distance < scaledInteractionDistance;
+                  if (isFollowing) {
+                    followMouse(imgObj);
+                  } else {
+                    returnToInitialPosition(imgObj);
+                  }
 
-        if (isFollowing) {
-            followMouse(imgObj);
-        } else {
-            returnToInitialPosition(imgObj);
-        }
+                  drawImage(imgObj);
 
-        drawImage(imgObj);
+                  for (let j = i + 1; j < images.length; j++) {
+                    handleCollision(imgObj, images[j]);
+                  }
+                });
+              }
 
-        for (let j = i + 1; j < images.length; j++) {
-            handleCollision(imgObj, images[j]);
-        }
-    });
-}
+              function followMouse(imgObj) {
+                const angleToMouse = atan2(
+                  mouseY - imgObj.y,
+                  mouseX - imgObj.x
+                );
+                const offsetX = cos(angleToMouse) * (60 * scaleFactor);
+                const offsetY = sin(angleToMouse) * (60 * scaleFactor);
+                imgObj.x = lerp(imgObj.x, mouseX - offsetX, 0.05);
+                imgObj.y = lerp(imgObj.y, mouseY - offsetY, 0.05);
+                imgObj.angle = angleToMouse + HALF_PI;
+              }
 
-function followMouse(imgObj) {
-    const angleToMouse = atan2(mouseY - imgObj.y, mouseX - imgObj.x);
-    const offsetX = cos(angleToMouse) * (60 * scaleFactor);
-    const offsetY = sin(angleToMouse) * (60 * scaleFactor);
-    imgObj.x = lerp(imgObj.x, mouseX - offsetX, 0.05);
-    imgObj.y = lerp(imgObj.y, mouseY - offsetY, 0.05);
-    imgObj.angle = angleToMouse + HALF_PI;
-}
+              function returnToInitialPosition(imgObj) {
+                const distanceToInitial = dist(
+                  imgObj.x,
+                  imgObj.y,
+                  imgObj.initialX,
+                  imgObj.initialY
+                );
 
-function returnToInitialPosition(imgObj) {
-    const distanceToInitial = dist(imgObj.x, imgObj.y, imgObj.initialX, imgObj.initialY);
+                if (distanceToInitial > 1) {
+                  const angleToInitial = atan2(
+                    imgObj.initialY - imgObj.y,
+                    imgObj.initialX - imgObj.x
+                  );
+                  imgObj.angle = angleToInitial + HALF_PI;
+                  const adaptiveSpeed = map(
+                    distanceToInitial,
+                    0,
+                    100 * scaleFactor,
+                    0.5,
+                    imgObj.speed * 3,
+                    true
+                  );
 
-    if (distanceToInitial > 1) {
-        const angleToInitial = atan2(imgObj.initialY - imgObj.y, imgObj.initialX - imgObj.x);
-        imgObj.angle = angleToInitial + HALF_PI;
-        const adaptiveSpeed = map(distanceToInitial, 0, 100 * scaleFactor, 0.5, imgObj.speed * 3, true);
+                  imgObj.x += cos(angleToInitial) * adaptiveSpeed;
+                  imgObj.y += sin(angleToInitial) * adaptiveSpeed;
 
-        imgObj.x += cos(angleToInitial) * adaptiveSpeed;
-        imgObj.y += sin(angleToInitial) * adaptiveSpeed;
+                  if (distanceToInitial > 10 * scaleFactor) {
+                    imgObj.x += random(
+                      -imgObj.wanderStrength / 2,
+                      imgObj.wanderStrength / 2
+                    );
+                    imgObj.y += random(
+                      -imgObj.wanderStrength / 2,
+                      imgObj.wanderStrength / 2
+                    );
+                  }
+                } else {
+                  imgObj.x = imgObj.initialX;
+                  imgObj.y = imgObj.initialY;
+                  imgObj.angle = imgObj.initialAngle;
+                }
+              }
 
-        if (distanceToInitial > 10 * scaleFactor) {
-            imgObj.x += random(-imgObj.wanderStrength / 2, imgObj.wanderStrength / 2);
-            imgObj.y += random(-imgObj.wanderStrength / 2, imgObj.wanderStrength / 2);
-        }
-    } else {
-        imgObj.x = imgObj.initialX;
-        imgObj.y = imgObj.initialY;
-        imgObj.angle = imgObj.initialAngle;
-    }
-}
+              function drawImage(imgObj) {
+                push();
+                translate(imgObj.x, imgObj.y);
+                rotate(imgObj.angle);
+                imageMode(CENTER);
 
-function drawImage(imgObj) {
-    push();
-    translate(imgObj.x, imgObj.y);
-    rotate(imgObj.angle);
-    imageMode(CENTER);
+                const movementAmount = dist(
+                  imgObj.x,
+                  imgObj.y,
+                  imgObj.prevX,
+                  imgObj.prevY
+                );
+                imgObj.isMoving = movementAmount > 0.3 * scaleFactor;
 
-    const movementAmount = dist(imgObj.x, imgObj.y, imgObj.prevX, imgObj.prevY);
-    imgObj.isMoving = movementAmount > 0.3 * scaleFactor;
+                const imgToDraw =
+                  imgObj.isMoving && frameCount % 30 < 20
+                    ? imgObj.img === img1
+                      ? img2
+                      : img1
+                    : imgObj.img;
 
-    const imgToDraw = imgObj.isMoving && frameCount % 30 < 20
-        ? (imgObj.img === img1 ? img2 : img1)
-        : imgObj.img;
+                image(
+                  imgToDraw,
+                  0,
+                  0,
+                  imgToDraw.width * scaleFactor,
+                  imgToDraw.height * scaleFactor
+                );
 
-    image(imgToDraw, 0, 0, imgToDraw.width * scaleFactor, imgToDraw.height * scaleFactor);
+                imgObj.prevX = imgObj.x;
+                imgObj.prevY = imgObj.y;
+                pop();
+              }
 
-    imgObj.prevX = imgObj.x;
-    imgObj.prevY = imgObj.y;
-    pop();
-}
+              function handleCollision(imgObj1, imgObj2) {
+                const distBetween = dist(
+                  imgObj1.x,
+                  imgObj1.y,
+                  imgObj2.x,
+                  imgObj2.y
+                );
+                const scaledMinDist = BASE_MIN_DIST * scaleFactor;
+                if (distBetween < scaledMinDist) {
+                  const angleToMove = atan2(
+                    imgObj2.y - imgObj1.y,
+                    imgObj2.x - imgObj1.x
+                  );
+                  const pushDistance = scaledMinDist - distBetween;
+                  imgObj1.x -= (cos(angleToMove) * pushDistance) / 2;
+                  imgObj1.y -= (sin(angleToMove) * pushDistance) / 2;
+                  imgObj2.x += (cos(angleToMove) * pushDistance) / 2;
+                  imgObj2.y += (sin(angleToMove) * pushDistance) / 2;
+                }
+              }
 
-function handleCollision(imgObj1, imgObj2) {
-    const distBetween = dist(imgObj1.x, imgObj1.y, imgObj2.x, imgObj2.y);
-    const scaledMinDist = BASE_MIN_DIST * scaleFactor;
-    if (distBetween < scaledMinDist) {
-        const angleToMove = atan2(imgObj2.y - imgObj1.y, imgObj2.x - imgObj1.x);
-        const pushDistance = scaledMinDist - distBetween;
-        imgObj1.x -= cos(angleToMove) * pushDistance / 2;
-        imgObj1.y -= sin(angleToMove) * pushDistance / 2;
-        imgObj2.x += cos(angleToMove) * pushDistance / 2;
-        imgObj2.y += sin(angleToMove) * pushDistance / 2;
-    }
-}
+              function windowResized() {
+                updateMargins();
+                const container = document.getElementById("canvas-container");
+                resizeCanvas(container.clientWidth, container.clientHeight);
+                calculateScale();
+                createImages();
+              }
+            </script>
+          </div>
+        </div>
+        <div class="div-block-10">
+          <p class="testo-big">
+            The Urban Biodiversity Observatory (OBU) explores the relationship
+            between cities and their ecosystems. Through the collection and
+            analysis of data from online platforms, the Observatory presents
+            visual narratives that depict the interaction between humans and
+            other forms of life in the urban environment.
+          </p>
+        </div>
+        <div class="indicatore-sezione-main">OBU</div>
+      </div>
+      <div class="second-card" data-w-id="f84f44b2-6d69-2d24-bdf7-5a6a9e11dc25">
+        <div class="indicatore-sezione">STORIES</div>
+        <div class="div-block-4-copy">
+          <div class="div-block-8-copy">
+            <div class="intro-sezioni">
+              This section presents a collection of stories about urban
+              biodiversity. Through the collection, analysis, and visualization
+              of data from various online platforms, each story explores an
+              aspect of the interaction between humans and other forms of life
+              in urban spaces.
+            </div>
+            <div class="selettore-storia">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">Youtube</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">2024</div>
+                </div>
+              </div>
+              <a class="nome-storia" href="bee-mosquito-pidgeon.html"
+                >Bee, Mosquito, Pidgeon</a
+              >
+            </div>
+            <div class="selettore-storia">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">TikTok</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">2024</div>
+                </div>
+              </div>
+              <a class="nome-storia" href="en-bell-bellissim.html"
+                >Bell*, bellissim*</a
+              >
+            </div>
+            <div class="selettore-storia">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">TikTok</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">2024</div>
+                </div>
+              </div>
+              <a
+                class="nome-storia"
+                href="hearts-for-squirrels-ewws-for-bugs---obu.html"
+                >Hearts for Squirrels. Eww for Bugs</a
+              >
+            </div>
+            <div class="selettore-storia nonattivo">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+              </div>
+              <a class="nome-storia nonattivo" href="index.html"
+                >The digital research<br />biodiversity</a
+              >
+            </div>
+            <div class="selettore-storia nonattivo">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+              </div>
+              <a class="nome-storia nonattivo" href="index.html"
+                >Squirrels in the outskirts</a
+              >
+            </div>
+            <div class="selettore-storia nonattivo">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+              </div>
+              <a class="nome-storia nonattivo" href="index.html"
+                >Lichens online: Invisible Plots</a
+              >
+            </div>
+            <div class="selettore-storia nonattivo">
+              <div class="info-storia">
+                <div class="piattaforma">
+                  <div class="intestazione">Platform</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+                <div class="anno">
+                  <div class="intestazione">Year</div>
+                  <div class="dato">Coming Soon</div>
+                </div>
+              </div>
+              <a class="nome-storia nonattivo" href="index.html"
+                >Good squirrel, bad spider: <br />Mapping Italian urban wildlife
+                on TikTok<br /><br />‍</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="third-card" data-w-id="30c67784-99e7-c138-72a9-1e61d1b13d18">
+        <div class="indicatore-sezione">DATASET</div>
+        <div class="container-dataset">
+          <div class="intro-sezioni">
+            This section contains the datasets used for the observatory's
+            analyses. The data, organized by thematic area, are linked to the
+            stories in which they are used.
+          </div>
+          <div class="tabella-dataset">
+            <div class="info-dataset">
+              <div class="dato">Date</div>
+              <div class="dato">Title   </div>
+              <div class="datohidden descrizione">Description</div>
+              <div class="datohidden">Link</div>
+              <div class="datohidden">Stories</div>
+            </div>
+            <div class="dato-dataset">
+              <div class="div-block-12">
+                <div class="listadataset">2024</div>
+                <div class="listadataset2">Animals on YouTube</div>
+              </div>
+              <div class="text-block-4">
+                This dataset collects mentions of animals in Italian videos
+                related to urban biodiversity on YouTube. It includes every
+                animal mentioned in a video and the total views for each video.
+              </div>
+              <div class="div-block-21">
+                <div class="text-block-8">Link:</div>
+                <div class="text-block-5">
+                  <a
+                    class="link-3"
+                    href="https://zenodo.org/records/14811415?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjE3NDAyOWE3LWU3ODUtNGMxMC1iNzcxLTJkMmNhYjhiYWYxZiIsImRhdGEiOnt9LCJyYW5kb20iOiJmN2U1ZjRkMjNiZWEyZTNkMzgyYWE0YjA1N2RmMTJhZSJ9.dUGWfInb9FGatQW214r-wktnlb5e5gvfpy_1IhkVR6cFUgupJUmk-n9gEgU1q44IDgbp-rGjkcBtHCrRf86zgw"
+                    target="_blank"
+                    >Zenodo</a
+                  >
+                </div>
+              </div>
+              <div class="div-block-14">
+                <div class="text-block-8">Stories related to the dataset:</div>
+                <div class="text-block-6">
+                  <a class="link-2" href="bee-mosquito-pidgeon.html"
+                    >Bee, Mosquito, Pigeon</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dato-dataset _2-righe">
+              <div class="div-block-12">
+                <div class="listadataset">2024</div>
+                <div class="listadataset2">
+                  YouTube Videos on Urban Biodiversity
+                </div>
+              </div>
+              <div class="text-block-4">
+                This dataset gathers around 500 YouTube videos on the topic of
+                urban biodiversity, collected using search terms such as:
+                “biodiversity+urban,” “biodiversity+city,” and
+                “biodiversity+urban.”
+              </div>
+              <div class="div-block-22">
+                <div class="text-block-8">Link:</div>
+                <div class="text-block-5">
+                  <a
+                    class="link-3"
+                    href="https://zenodo.org/records/14811453?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImVkYTg5NDYzLWNjNzMtNGJlMi1iNjlhLWQyZWUwYWNhMzk1NCIsImRhdGEiOnt9LCJyYW5kb20iOiJlZTdjYzEwOTA3YzQzNmViZmE5NjRmODA4NTIxZjEwMSJ9.GEtWb40XLHJLvIMvBGbJOteA-TyiDTDMUfawqqNt-A-CP8jan9Vb2pshcnfO7Trz4MjpgGVvz365jf1XBIAmDQ"
+                    target="_blank"
+                    >Zenodo</a
+                  >
+                </div>
+              </div>
+              <div class="div-block-14">
+                <div class="text-block-8">Stories related to the dataset:</div>
+                <div class="text-block-6">
+                  <a class="link-2" href="bee-mosquito-pidgeon.html"
+                    >Bee, Mosquito, Pigeon</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dato-dataset _3-righe">
+              <div class="div-block-12">
+                <div class="listadataset">2024</div>
+                <div class="listadataset2">
+                  Adjectives Used to Describe Urban Animals on TikTok
+                </div>
+              </div>
+              <div class="text-block-4">
+                This dataset summarizes the most frequently used adjectives in
+                the captions of TikTok videos discussing animals in Italian
+                cities.
+              </div>
+              <div class="div-block-23">
+                <div class="text-block-8">Link:</div>
+                <div class="text-block-5">
+                  <a
+                    class="link-3"
+                    href="https://zenodo.org/records/14811603?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjgyMmI0NjExLWFkN2QtNGFhNC04ZTViLWNhY2UzZjIzZDMyZCIsImRhdGEiOnt9LCJyYW5kb20iOiJiMTA2MDlmODA2YjMyNTY2YjkxMTlhMjI3MTIxMWQzZiJ9.fVozkaHTSJRQ4IyJz19O3O493oQtoazP_voaFd4yogYinExk3qxSM8kCUwEnauxfUDDxK6uKj7bjtnBRqVUcpQ"
+                    target="_blank"
+                    >Zenodo</a
+                  >
+                </div>
+              </div>
+              <div class="div-block-14">
+                <div class="text-block-8">Stories related to the dataset:</div>
+                <div class="text-block-6">
+                  <a class="link-2" href="en-bell-bellissim.html"
+                    >Bell*, bellissim*</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dato-dataset _2-righe">
+              <div class="div-block-12">
+                <div class="listadataset">2024</div>
+                <div class="listadataset2">
+                  Videos on Urban Animals on TikTok
+                </div>
+              </div>
+              <div class="text-block-4">
+                This dataset collects Italian-language videos from TikTok
+                discussing animals in Italian cities. Each video is associated
+                with an animal and includes video metrics.
+              </div>
+              <div class="div-block-24">
+                <div class="text-block-8">Link:</div>
+                <div class="text-block-5">
+                  <a
+                    class="link-3"
+                    href="https://zenodo.org/records/14811563?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjE0YWY4NzI0LTE5NmQtNDJhMS1iNjRiLTJhYTI1ZGEwODBhNyIsImRhdGEiOnt9LCJyYW5kb20iOiJkNjA1OTlhY2Q2ZjdmOTc5ODAyY2FhMzE3ZjYwNDA5NCJ9.qPwfOJMi9bQUDPKma6nEKA5iDIk0Wu1RDmduNW5VQ0jyFbq5bDqJmIVIh5bWsq3A64Re6Lyv2LSTezueSxkk6w"
+                    target="_blank"
+                    >Zenodo</a
+                  >
+                </div>
+              </div>
+              <div class="div-block-14">
+                <div class="text-block-8">Stories related to the dataset:</div>
+                <div class="text-block-6">
+                  <a class="link-2" href="en-bell-bellissim.html"
+                    >Bell*, bellissim*</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dato-dataset _2-righe">
+              <div class="div-block-12">
+                <div class="listadataset">2024</div>
+                <div class="listadataset2">
+                  Emojis Used on TikTok to Talk About Urban Animals
+                </div>
+              </div>
+              <div class="text-block-4">
+                This dataset summarizes the most frequently used emojis in the
+                captions of TikTok videos about animals in Italian cities.. 
+              </div>
+              <div>
+                <div class="text-block-8">Link:</div>
+                <div class="text-block-5">
+                  <a
+                    class="link-3"
+                    href="https://zenodo.org/records/14811691?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImIxOTJiYjZlLTYxZDctNGRjOC1iZmU0LWMwNzkzNWUyN2Q1MyIsImRhdGEiOnt9LCJyYW5kb20iOiIzZDNiNzhmNmZjODk4M2YzYjI3NDJhOTMxYTJlYzc1YiJ9.wDYPftABrRnz6sPf3K_uA5sywyM1iRKTKEEJ8y8reQrai6Hnr9Doe7_02PP9AsME-XMmImapTYycc21lwtADXw"
+                    target="_blank"
+                    >Zenodo</a
+                  >
+                </div>
+              </div>
+              <div class="div-block-14">
+                <div class="text-block-8">
+                  Stories related to the dataset:<br />
+                </div>
+                <div class="text-block-6">
+                  <a
+                    class="link-2"
+                    href="hearts-for-squirrels-ewws-for-bugs---obu.html"
+                    >Hearts for squirrels, Bleah for insects</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fourth-card" data-w-id="dc6560c9-cf96-dca8-216a-1c11ad84caba">
+        <div class="indicatore-sezione">ABOUT</div>
+        <div class="div-block-4">
+          <div class="div-block-8-copy">
+            <div class="intro-sezioni">
+              The Urban Biodiversity Observatory (OBU) is a research project
+              that analyzes online conversations to study relationships between
+              humans and other species in urban areas. Led by the Density Design
+              research lab at the Politecnico di Milano's Department of Design,
+              the project is part of the National Biodiversity Future Center
+              (NBFC), funded by the European Union and the Italian Ministry of
+              University and Research.<br />‍<br />OBU was conceived and
+              designed by<strong> </strong>Alessandra Facchin, Michele Mauri,
+              Gabriele Colombo<br />Web design:<strong> </strong>Bianca Bauer,
+              Benedetta Riccio<br />Development: Matteo Visini<br />‍
+            </div>
+            <div class="text-block-12">-------------------------</div>
+            <div class="intro-sezioni">
+              As urbanization accelerates, promoting biodiversity in cities has
+              become essential. However, urban biodiversity initiatives often
+              conflict with local characteristics, citizen needs, and
+              stakeholder economic interests, sparking intense debates. Across
+              online forums, websites, blogs, and social media, diverse actors
+              present arguments, advocate for causes, and share images and
+              comments to express their positions. The web provides invaluable
+              data for understanding the multiple actors, voices, and
+              perspectives shaping urban biodiversity discussions.<br />‍<br />Drawing
+              on media studies and digital sociology frameworks—including
+              controversy mapping, digital methods, and issue mapping—this
+              project demonstrates how digital data can illuminate biodiversity
+              perceptions in urban contexts. Through visual narratives, the
+              Observatory shows how data from social media comments, digital
+              images, online news, and videos can map urban biodiversity
+              debates, revealing the complex relationships between humans and
+              other species in cities.<br /><br />Through the collection and
+              analysis of digital data and information visualization, the
+              Observatory develops narratives about human coexistence with
+              plants and animals in Italian cities. It also provides access to
+              its underlying data, allowing researchers and interested
+              individuals to explore these topics independently.
+            </div>
+            <div class="footermob">
+              <a
+                class="w-inline-block"
+                href="https://next-generation-eu.europa.eu/"
+                target="_blank"
+                ><img
+                  alt="NextGenerationEu Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 32vw, 100vw"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png"
+                  srcset="
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU-p-500.png 500w,
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png       941w
+                  "
+                  width="Auto" /></a
+              ><a
+                class="w-inline-block"
+                href="https://www.mur.gov.it/it"
+                target="_blank"
+                ><img
+                  alt="Ministero dell'Università e della Ricerca Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 23vw, 100vw"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png"
+                  srcset="
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR-p-500.png 500w,
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png       683w
+                  "
+                  width="Auto" /></a
+              ><a
+                class="w-inline-block"
+                href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/home.html"
+                target="_blank"
+                ><img
+                  alt="Italiadomani Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 24vw, 100vw"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png"
+                  srcset="
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani-p-500.png 500w,
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png       700w
+                  "
+                  width="Auto" /></a
+              ><a
+                class="w-inline-block"
+                href="https://www.nbfc.it/"
+                target="_blank"
+                ><img
+                  alt="National Biodiversity Future Center Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 26vw, 100vw"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png"
+                  srcset="
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC-p-500.png 500w,
+                    external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png       774w
+                  "
+                  width="Auto" /></a
+              ><a
+                class="w-inline-block"
+                href="https://dipartimentodesign.polimi.it/"
+                target="_blank"
+                ><img
+                  alt="Politecnico di Milano Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b023d8c9396ceda99f9f_PoliMI.png"
+                  width="Auto" /></a
+              ><a
+                class="w-inline-block"
+                href="https://densitydesign.org/"
+                target="_blank"
+                ><img
+                  alt="DensityDesign Logo"
+                  class="footerimg"
+                  height="51"
+                  loading="lazy"
+                  src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022c4e45df64a40d7ac_DensityDesign.png"
+                  width="Auto"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer2">
+          <a
+            class="w-inline-block"
+            href="https://next-generation-eu.europa.eu/"
+            target="_blank"
+            ><img
+              alt="NextGenerationEu Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              sizes="(max-width: 479px) 100vw, 13vw"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png"
+              srcset="
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU-p-500.png 500w,
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png       941w
+              "
+              width="Auto" /></a
+          ><a
+            class="w-inline-block"
+            href="https://www.mur.gov.it/it"
+            target="_blank"
+            ><img
+              alt="Ministero dell'Università e della Ricerca Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              sizes="(max-width: 479px) 100vw, 10vw"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png"
+              srcset="
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR-p-500.png 500w,
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png       683w
+              "
+              width="Auto" /></a
+          ><a
+            class="w-inline-block"
+            href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/home.html"
+            target="_blank"
+            ><img
+              alt="Italiadomani Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              sizes="(max-width: 479px) 100vw, 10vw"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png"
+              srcset="
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani-p-500.png 500w,
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png       700w
+              "
+              width="Auto" /></a
+          ><a class="w-inline-block" href="https://www.nbfc.it/" target="_blank"
+            ><img
+              alt="National Biodiversity Future Center Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              sizes="(max-width: 479px) 100vw, 11vw"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png"
+              srcset="
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC-p-500.png 500w,
+                external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png       774w
+              "
+              width="Auto" /></a
+          ><a
+            class="w-inline-block"
+            href="https://dipartimentodesign.polimi.it/"
+            target="_blank"
+            ><img
+              alt="Politecnico di Milano Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/67a33e9ed5bceab448b1da7a_PoliMi.png"
+              width="Auto" /></a
+          ><a
+            class="w-inline-block"
+            href="https://densitydesign.org/"
+            target="_blank"
+            ><img
+              alt="DensityDesign Logo"
+              class="footerimg"
+              height="51"
+              loading="lazy"
+              src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022c4e45df64a40d7ac_DensityDesign.png"
+              width="Auto"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <script
+      crossorigin="anonymous"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=674f332340808fa363078766"
+      type="text/javascript"
+    ></script>
+    <script
+      src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.schunk.4a394eb5af8156f2.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.schunk.3bf3c06809a02500.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.26d89c12.cdc44e5512ace698.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg"
+      media="(prefers-color-scheme:no-preference)"
+      rel="icon"
+    />
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eaca0302228d25fa415f0_FavIconDM.svg"
+      media="(prefers-color-scheme:dark)"
+      rel="icon"
+    />
+    <link
+      href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg"
+      media="(prefers-color-scheme:light)"
+      rel="icon"
+    />
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-function windowResized() {
-    updateMargins();
-    const container = document.getElementById('canvas-container');
-    resizeCanvas(container.clientWidth, container.clientHeight);
-    calculateScale();
-    createImages();
-}
-</script></div></div><div class="div-block-10"><p class="testo-big">The Urban Biodiversity Observatory (OBU) explores the relationship between cities and their ecosystems. Through the collection and analysis of data from online platforms, the Observatory presents visual narratives that depict the interaction between humans and other forms of life in the urban environment.</p></div><div class="indicatore-sezione-main">OBU</div></div><div class="second-card" data-w-id="f84f44b2-6d69-2d24-bdf7-5a6a9e11dc25"><div class="indicatore-sezione">STORIES</div><div class="div-block-4-copy"><div class="div-block-8-copy"><div class="intro-sezioni">This section presents a collection of stories about urban biodiversity. Through the collection, analysis, and visualization of data from various online platforms, each story explores an aspect of the interaction between humans and other forms of life in urban spaces.</div><div class="selettore-storia"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">Youtube</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">2024</div></div></div><a class="nome-storia" href="bee-mosquito-pidgeon.html">Bee, Mosquito, Pidgeon</a></div><div class="selettore-storia"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">TikTok</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">2024</div></div></div><a class="nome-storia" href="en-bell-bellissim.html">Bell*, bellissim*</a></div><div class="selettore-storia"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">TikTok</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">2024</div></div></div><a class="nome-storia" href="hearts-for-squirrels-ewws-for-bugs---obu.html">Hearts for Squirrels. Eww for Bugs</a></div><div class="selettore-storia nonattivo"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">Coming Soon</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">Coming Soon</div></div></div><a class="nome-storia nonattivo" href="index.html">The digital research<br/>biodiversity</a></div><div class="selettore-storia nonattivo"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">Coming Soon</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">Coming Soon</div></div></div><a class="nome-storia nonattivo" href="index.html">Squirrels in the outskirts</a></div><div class="selettore-storia nonattivo"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">Coming Soon</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">Coming Soon</div></div></div><a class="nome-storia nonattivo" href="index.html">Lichens online: Invisible Plots</a></div><div class="selettore-storia nonattivo"><div class="info-storia"><div class="piattaforma"><div class="intestazione">Platform</div><div class="dato">Coming Soon</div></div><div class="anno"><div class="intestazione">Year</div><div class="dato">Coming Soon</div></div></div><a class="nome-storia nonattivo" href="index.html">Good squirrel, bad spider: <br/>Mapping Italian urban wildlife on TikTok<br/><br/>‍</a></div></div></div></div><div class="third-card" data-w-id="30c67784-99e7-c138-72a9-1e61d1b13d18"><div class="indicatore-sezione">DATASET</div><div class="container-dataset"><div class="intro-sezioni">This section contains the datasets used for the observatory's analyses. The data, organized by thematic area, are linked to the stories in which they are used.</div><div class="tabella-dataset"><div class="info-dataset"><div class="dato">Date</div><div class="dato">Title   </div><div class="datohidden descrizione">Description</div><div class="datohidden">Link</div><div class="datohidden">Stories</div></div><div class="dato-dataset"><div class="div-block-12"><div class="listadataset">2024</div><div class="listadataset2">Animals on YouTube</div></div><div class="text-block-4">This dataset collects mentions of animals in Italian videos related to urban biodiversity on YouTube. It includes every animal mentioned in a video and the total views for each video.</div><div class="div-block-21"><div class="text-block-8">Link:</div><div class="text-block-5"><a class="link-3" href="https://zenodo.org/records/14811415?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjE3NDAyOWE3LWU3ODUtNGMxMC1iNzcxLTJkMmNhYjhiYWYxZiIsImRhdGEiOnt9LCJyYW5kb20iOiJmN2U1ZjRkMjNiZWEyZTNkMzgyYWE0YjA1N2RmMTJhZSJ9.dUGWfInb9FGatQW214r-wktnlb5e5gvfpy_1IhkVR6cFUgupJUmk-n9gEgU1q44IDgbp-rGjkcBtHCrRf86zgw" target="_blank">Zenodo</a></div></div><div class="div-block-14"><div class="text-block-8">Stories related to the dataset:</div><div class="text-block-6"><a class="link-2" href="bee-mosquito-pidgeon.html">Bee, Mosquito, Pigeon</a></div></div></div><div class="dato-dataset _2-righe"><div class="div-block-12"><div class="listadataset">2024</div><div class="listadataset2">YouTube Videos on Urban Biodiversity</div></div><div class="text-block-4">This dataset gathers around 500 YouTube videos on the topic of urban biodiversity, collected using search terms such as: “biodiversity+urban,” “biodiversity+city,” and “biodiversity+urban.”</div><div class="div-block-22"><div class="text-block-8">Link:</div><div class="text-block-5"><a class="link-3" href="https://zenodo.org/records/14811453?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImVkYTg5NDYzLWNjNzMtNGJlMi1iNjlhLWQyZWUwYWNhMzk1NCIsImRhdGEiOnt9LCJyYW5kb20iOiJlZTdjYzEwOTA3YzQzNmViZmE5NjRmODA4NTIxZjEwMSJ9.GEtWb40XLHJLvIMvBGbJOteA-TyiDTDMUfawqqNt-A-CP8jan9Vb2pshcnfO7Trz4MjpgGVvz365jf1XBIAmDQ" target="_blank">Zenodo</a></div></div><div class="div-block-14"><div class="text-block-8">Stories related to the dataset:</div><div class="text-block-6"><a class="link-2" href="bee-mosquito-pidgeon.html">Bee, Mosquito, Pigeon</a></div></div></div><div class="dato-dataset _3-righe"><div class="div-block-12"><div class="listadataset">2024</div><div class="listadataset2">Adjectives Used to Describe Urban Animals on TikTok</div></div><div class="text-block-4">This dataset summarizes the most frequently used adjectives in the captions of TikTok videos discussing animals in Italian cities.</div><div class="div-block-23"><div class="text-block-8">Link:</div><div class="text-block-5"><a class="link-3" href="https://zenodo.org/records/14811603?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjgyMmI0NjExLWFkN2QtNGFhNC04ZTViLWNhY2UzZjIzZDMyZCIsImRhdGEiOnt9LCJyYW5kb20iOiJiMTA2MDlmODA2YjMyNTY2YjkxMTlhMjI3MTIxMWQzZiJ9.fVozkaHTSJRQ4IyJz19O3O493oQtoazP_voaFd4yogYinExk3qxSM8kCUwEnauxfUDDxK6uKj7bjtnBRqVUcpQ" target="_blank">Zenodo</a></div></div><div class="div-block-14"><div class="text-block-8">Stories related to the dataset:</div><div class="text-block-6"><a class="link-2" href="en-bell-bellissim.html">Bell*, bellissim*</a></div></div></div><div class="dato-dataset _2-righe"><div class="div-block-12"><div class="listadataset">2024</div><div class="listadataset2">Videos on Urban Animals on TikTok</div></div><div class="text-block-4">This dataset collects Italian-language videos from TikTok discussing animals in Italian cities. Each video is associated with an animal and includes video metrics.</div><div class="div-block-24"><div class="text-block-8">Link:</div><div class="text-block-5"><a class="link-3" href="https://zenodo.org/records/14811563?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjE0YWY4NzI0LTE5NmQtNDJhMS1iNjRiLTJhYTI1ZGEwODBhNyIsImRhdGEiOnt9LCJyYW5kb20iOiJkNjA1OTlhY2Q2ZjdmOTc5ODAyY2FhMzE3ZjYwNDA5NCJ9.qPwfOJMi9bQUDPKma6nEKA5iDIk0Wu1RDmduNW5VQ0jyFbq5bDqJmIVIh5bWsq3A64Re6Lyv2LSTezueSxkk6w" target="_blank">Zenodo</a></div></div><div class="div-block-14"><div class="text-block-8">Stories related to the dataset:</div><div class="text-block-6"><a class="link-2" href="en-bell-bellissim.html">Bell*, bellissim*</a></div></div></div><div class="dato-dataset _2-righe"><div class="div-block-12"><div class="listadataset">2024</div><div class="listadataset2">Emojis Used on TikTok to Talk About Urban Animals</div></div><div class="text-block-4">This dataset summarizes the most frequently used emojis in the captions of TikTok videos about animals in Italian cities.. </div><div><div class="text-block-8">Link:</div><div class="text-block-5"><a class="link-3" href="https://zenodo.org/records/14811691?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImIxOTJiYjZlLTYxZDctNGRjOC1iZmU0LWMwNzkzNWUyN2Q1MyIsImRhdGEiOnt9LCJyYW5kb20iOiIzZDNiNzhmNmZjODk4M2YzYjI3NDJhOTMxYTJlYzc1YiJ9.wDYPftABrRnz6sPf3K_uA5sywyM1iRKTKEEJ8y8reQrai6Hnr9Doe7_02PP9AsME-XMmImapTYycc21lwtADXw" target="_blank">Zenodo</a></div></div><div class="div-block-14"><div class="text-block-8">Stories related to the dataset:<br/></div><div class="text-block-6"><a class="link-2" href="hearts-for-squirrels-ewws-for-bugs---obu.html">Hearts for squirrels, Bleah for insects</a></div></div></div></div></div></div><div class="fourth-card" data-w-id="dc6560c9-cf96-dca8-216a-1c11ad84caba"><div class="indicatore-sezione">ABOUT</div><div class="div-block-4"><div class="div-block-8-copy"><div class="intro-sezioni">The Urban Biodiversity Observatory (OBU) is a research project that analyzes online conversations to study relationships between humans and other species in urban areas. Led by the Density Design research lab at the Politecnico di Milano's Department of Design, the project is part of the National Biodiversity Future Center (NBFC), funded by the European Union and the Italian Ministry of University and Research.<br/>‍<br/>OBU was conceived and designed by<strong> </strong>Alessandra Facchin, Michele Mauri, Gabriele Colombo<br/>Web design:<strong> </strong>Bianca Bauer, Benedetta Riccio<br/>Development: Matteo Visini<br/>‍</div><div class="text-block-12">-------------------------</div><div class="intro-sezioni">As urbanization accelerates, promoting biodiversity in cities has become essential. However, urban biodiversity initiatives often conflict with local characteristics, citizen needs, and stakeholder economic interests, sparking intense debates. Across online forums, websites, blogs, and social media, diverse actors present arguments, advocate for causes, and share images and comments to express their positions. The web provides invaluable data for understanding the multiple actors, voices, and perspectives shaping urban biodiversity discussions.<br/>‍<br/>Drawing on media studies and digital sociology frameworks—including controversy mapping, digital methods, and issue mapping—this project demonstrates how digital data can illuminate biodiversity perceptions in urban contexts. Through visual narratives, the Observatory shows how data from social media comments, digital images, online news, and videos can map urban biodiversity debates, revealing the complex relationships between humans and other species in cities.<br/><br/>Through the collection and analysis of digital data and information visualization, the Observatory develops narratives about human coexistence with plants and animals in Italian cities. It also provides access to its underlying data, allowing researchers and interested individuals to explore these topics independently.</div><div class="footermob"><a class="w-inline-block" href="https://next-generation-eu.europa.eu/" target="_blank"><img alt="NextGenerationEu Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 32vw, 100vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png 941w" width="Auto"/></a><a class="w-inline-block" href="https://www.mur.gov.it/it" target="_blank"><img alt="Ministero dell'Università e della Ricerca Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 23vw, 100vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png 683w" width="Auto"/></a><a class="w-inline-block" href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/home.html" target="_blank"><img alt="Italiadomani Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 24vw, 100vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png 700w" width="Auto"/></a><a class="w-inline-block" href="https://www.nbfc.it/" target="_blank"><img alt="National Biodiversity Future Center Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 26vw, 100vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png 774w" width="Auto"/></a><a class="w-inline-block" href="https://dipartimentodesign.polimi.it/" target="_blank"><img alt="Politecnico di Milano Logo" class="footerimg" height="51" loading="lazy" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b023d8c9396ceda99f9f_PoliMI.png" width="Auto"/></a><a class="w-inline-block" href="https://densitydesign.org/" target="_blank"><img alt="DensityDesign Logo" class="footerimg" height="51" loading="lazy" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022c4e45df64a40d7ac_DensityDesign.png" width="Auto"/></a></div></div></div><div class="footer2"><a class="w-inline-block" href="https://next-generation-eu.europa.eu/" target="_blank"><img alt="NextGenerationEu Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 100vw, 13vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022a19790404ad14f44_NextGeneration%20EU.png 941w" width="Auto"/></a><a class="w-inline-block" href="https://www.mur.gov.it/it" target="_blank"><img alt="Ministero dell'Università e della Ricerca Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 100vw, 10vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0234c34e7ef0ca80d47_MUR.png 683w" width="Auto"/></a><a class="w-inline-block" href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/home.html" target="_blank"><img alt="Italiadomani Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 100vw, 10vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b02257ac7945f35838c4_ItaliaDomani.png 700w" width="Auto"/></a><a class="w-inline-block" href="https://www.nbfc.it/" target="_blank"><img alt="National Biodiversity Future Center Logo" class="footerimg" height="51" loading="lazy" sizes="(max-width: 479px) 100vw, 11vw" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png" srcset="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC-p-500.png 500w, external/cdn.prod.website-files.com/674f332340808fa363078766/6758b0224fc579ac726d160d_NBFC.png 774w" width="Auto"/></a><a class="w-inline-block" href="https://dipartimentodesign.polimi.it/" target="_blank"><img alt="Politecnico di Milano Logo" class="footerimg" height="51" loading="lazy" src="external/cdn.prod.website-files.com/674f332340808fa363078766/67a33e9ed5bceab448b1da7a_PoliMi.png" width="Auto"/></a><a class="w-inline-block" href="https://densitydesign.org/" target="_blank"><img alt="DensityDesign Logo" class="footerimg" height="51" loading="lazy" src="external/cdn.prod.website-files.com/674f332340808fa363078766/6758b022c4e45df64a40d7ac_DensityDesign.png" width="Auto"/></a></div></div></div><script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=674f332340808fa363078766" type="text/javascript"></script><script src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.schunk.4a394eb5af8156f2.js" type="text/javascript"></script><script src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.schunk.3bf3c06809a02500.js" type="text/javascript"></script><script src="external/cdn.prod.website-files.com/674f332340808fa363078766/js/obu---osservatorio-sulla-biodiversita-u.26d89c12.cdc44e5512ace698.js" type="text/javascript"></script><link href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg" media="(prefers-color-scheme:no-preference)" rel="icon"/>
-<link href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eaca0302228d25fa415f0_FavIconDM.svg" media="(prefers-color-scheme:dark)" rel="icon"/>
-<link href="external/cdn.prod.website-files.com/674f332340808fa363078766/677eab29d6843856991d6e96_FavIcon.svg" media="(prefers-color-scheme:light)" rel="icon"/>
-<style>
-/* width */
-::-webkit-scrollbar {
-  width: 0px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: transparent; 
-}
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: transparent; 
-```
-}
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+      ```
+      }
 
 
-body { -webkit-font-smoothing: antialiased; }
+      body { -webkit-font-smoothing: antialiased; }
 
 
-body { overflow: -moz-scrollbars-none; -ms-overflow-style: none;  }
-:root{
-  scrollbar-width: none !important;
-}
+      body { overflow: -moz-scrollbars-none; -ms-overflow-style: none;  }
+      :root{
+        scrollbar-width: none !important;
+      }
 
-body{
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+      body{
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 
 
 
 
 
 
-</body></html></style></body></html>
+      </body></html>
+    </style>
+  </body>
+</html>
